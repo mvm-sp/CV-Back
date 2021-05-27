@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+
+        function teste() {
+            var requestOptions = {
+                method: 'GET',
+                redirect: 'follow'
+            };
+
+            fetch("http://localhost:3000/api/v1/cvowner/1", requestOptions) // "https://99c6854c2b76.ngrok.io/api/v1/user_account/"
+                .then(response => response.text())
+                .then(async result => {
+
+                    const { payload } = JSON.parse(result)
+                    const ul = document.createElement('ul')
+                    ul.innerHTML = payload.map((m) => `<li>${m.id} - ${m.name}</li>`)
+                    document.body.appendChild(ul)
+
+                })
+                .catch(error => console.log('error', error));
+        }
+
+    </script>
+
+
+    <button onclick="teste()">Teste</button>
+</body>
+
+</html>
