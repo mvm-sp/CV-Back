@@ -4,10 +4,10 @@ const { Client } = require('pg')
 const replaceall = require("replaceall");
 const client = new Client({
   user: 'postgres',
-  host: '201.20.7.33',
-  database: 'nestbidb',
-  password: 'TjYz3m',
-  port: 5890,
+  host: '127.0.0.1',
+  database: 'local',
+  password: 'postgres',
+  port: 5432,
 });
 client.connect();
 var fs = require('fs');
